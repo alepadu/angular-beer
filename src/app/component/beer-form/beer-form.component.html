@@ -1,0 +1,29 @@
+<div class="card shadow py-2">
+  <h5 class="card-header">Beer Form</h5>
+  <div class="card-body">
+    <form action="submit">
+      <div class="form-group row">
+        <label for="beerName" class="col-auto col-form-label">Nome birra</label>
+        <div class="col-auto">
+          <input
+            id="beerName"
+            type="text"
+            class="form-control-plaintext"
+            value=""
+            placeholder="Inserisci nome birra"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="beerTypeselect" class="form-label mt-4"
+          >Seleziona tipo di Birra</label
+        >
+        <select class="form-select" id="beerTypeselect">
+          <option *ngFor="let type of types" value="{{ type }}">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
