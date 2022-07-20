@@ -1,28 +1,93 @@
 <div class="card shadow py-2">
-  <h5 class="card-header">Beer Form</h5>
+  <h5 class="card-header"><strong>Add Beer</strong></h5>
   <div class="card-body">
-    <form action="submit">
-      <div class="form-group row">
-        <label for="beerName" class="col-auto col-form-label">Nome birra</label>
-        <div class="col-auto">
-          <input
-            id="beerName"
-            type="text"
-            class="form-control-plaintext"
-            value=""
-            placeholder="Inserisci nome birra"
-          />
+    <form [formGroup]="beerForm">
+      <div class="form-group">
+        <div class="row mb-2">
+          <label for="beerName" class="col-auto col-form-label"
+            >Nome birra</label
+          >
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="beerName"
+              placeholder="Inserisci nome birra"
+              [ngClass]="
+                beerForm.controls.beerName.touched
+                  ? beerForm.controls.beerName.valid
+                    ? 'is-valid'
+                    : 'is-invalid'
+                  : ''
+              "
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="upc" class="col-auto col-form-label">Upc </label>
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="upc"
+              placeholder="Inserisci nome birra"
+              [ngClass]="
+                beerForm.controls.upc.touched
+                  ? beerForm.controls.upc.valid
+                    ? 'is-valid'
+                    : 'is-invalid'
+                  : ''
+              "
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="price" class="col-auto col-form-label">Prezzo </label>
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="price"
+              placeholder="Inserisci nome birra"
+              [ngClass]="
+                beerForm.controls.price.touched
+                  ? beerForm.controls.price.valid
+                    ? 'is-valid'
+                    : 'is-invalid'
+                  : ''
+              "
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="beerTypeSelect" class="form-label mt-4"
+            >Seleziona tipo di Birra</label
+          >
+          <select
+            class="form-select mb-1"
+            placeholder="Seleziona tipo di birra"
+            formControlName="beerStyle"
+            [ngClass]="
+              beerForm.controls.beerStyle.touched
+                ? beerForm.controls.beerStyle.valid
+                  ? 'is-valid'
+                  : 'is-invalid'
+                : ''
+            "
+          >
+            <option value="-1" class="disabled" selected="true" disabled>
+              Seleziona beerType
+            </option>
+            <option *ngFor="let type of types" [ngValue]="type">
+              {{ type }}
+            </option>
+          </select>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="beerTypeselect" class="form-label mt-4"
-          >Seleziona tipo di Birra</label
-        >
-        <select class="form-select" id="beerTypeselect">
-          <option *ngFor="let type of types" value="{{ type }}">
-            {{ type }}
-          </option>
-        </select>
+      <div class="row mb-2 pull-right d-flex py-2">
+        <button type="sumbit" class="col-lg-6 btn btn-primary">
+          Submit <i class="fa fa-paper-plane"></i>
+        </button>
       </div>
     </form>
   </div>

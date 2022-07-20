@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { allBeerTypes, BeerForm } from '../../model/model';
 import { BeerService } from '../../services/beer.service';
 
 @Component({
@@ -8,9 +10,19 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerFormComponent implements OnInit {
   types: string[];
-  constructor(private beerService: BeerService) {
-    //this.types = beerService.getBeerTypes();
-    this.types = ['ALE', 'PALE_ALE', 'STOUT'];
+  beerForm: FormGroup<BeerForm>;
+  constructor() {
+    this.types = allBeerTypes;
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.beerForm = this.initForm();
+  }
+  private initForm(): FormGroup<BeerForm> {
+    return new FormGroup<BeerForm>({
+      beerName: new FormControl(null, Validators.required),
+      beerStyle: new FormControl(null, Validators.required),
+      upc: new FormControl(null, Validators.required),
+      price: new FormControl(null, Validators.required),
+    });
+  }
 }
