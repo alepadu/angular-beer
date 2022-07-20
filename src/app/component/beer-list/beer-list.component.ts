@@ -8,7 +8,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerListComponent implements OnInit {
   beers: Beer[];
-  constructor(beerService: BeerService) {
+  constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();
   }
 
