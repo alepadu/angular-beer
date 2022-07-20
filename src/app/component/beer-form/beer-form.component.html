@@ -45,7 +45,7 @@
           <label for="price" class="col-auto col-form-label">Prezzo </label>
           <div class="col-auto">
             <input
-              type="text"
+              type="number"
               class="form-control"
               formControlName="price"
               placeholder="Inserisci nome birra"
@@ -75,19 +75,30 @@
                 : ''
             "
           >
-            <option value="-1" class="disabled" selected="true" disabled>
-              Seleziona beerType
+            <option
+              [ngValue]="null"
+              class="disabled"
+              aria-selected="true"
+              disabled
+            >
+              --- Seleziona beerType ---
             </option>
             <option *ngFor="let type of types" [ngValue]="type">
               {{ type }}
             </option>
           </select>
         </div>
-      </div>
-      <div class="row mb-2 pull-right d-flex py-2">
-        <button type="sumbit" class="col-lg-6 btn btn-primary">
-          Submit <i class="fa fa-paper-plane"></i>
-        </button>
+        <div class="row mb-2 pull-right py-2">
+          <button
+            type="sumbit"
+            class="col-lg-6 btn btn-primary"
+            [disabled]="beerForm.invalid"
+            (click)="onSubmit()"
+            routerLink="/list"
+          >
+            Submit <i class="fa fa-paper-plane"></i>
+          </button>
+        </div>
       </div>
     </form>
   </div>
