@@ -1,4 +1,9 @@
-<li>{{ beer.id }} - {{ beer.beerName }}</li>
+<li>
+  {{ beer.id }} - {{ beer.beerName }} -
+  <button class="btn btn-sm" (click)="deleteBeer(beer)">
+    <i class="fa fa-trash" style="color:red !important;"></i>
+  </button>
+</li>
 <ul>
   <li>Style: {{ beer.beerStyle }}</li>
   <li>Price: {{ beer.price }}</li>

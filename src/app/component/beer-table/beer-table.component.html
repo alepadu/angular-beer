@@ -18,8 +18,12 @@
       <td>{{ beer.upc }}</td>
       <td>{{ beer.createdDate }}</td>
       <td>
-        <button (click)="deleteBeer(beer)">
-          elimina<i class="fa fa-trash"></i>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="deleteBeer(beer)"
+        >
+          Elimina <i class="fa fa-trash"></i>
         </button>
       </td>
     </tr>
