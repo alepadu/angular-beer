@@ -3,8 +3,8 @@ import { Beer } from '../../model/model';
 
 @Component({
   selector: 'app-beer-table',
-  templateUrl: './beer.component.html',
-  styleUrls: ['./beer.component.css'],
+  templateUrl: './beer-table.component.html',
+  styleUrls: ['./beer-table.component.css'],
 })
 export class BeerTableComponent implements OnInit {
   @Input() beers: Beer[];
