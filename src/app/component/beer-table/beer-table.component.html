@@ -14,11 +14,8 @@
       <td>{{ beer.id }}</td>
       <td>
         {{ beer.beerName }} -
-        <button
-          class="btn btn-sm btn-info"
-          (click)="cliccato.emit(beer.beerName)"
-        >
-          Send name to father
+        <button class="btn btn-sm btn-info" (click)="cliccato.emit(beer)">
+          Show details
         </button>
       </td>
       <td>{{ beer.beerStyle }}</td>
@@ -37,15 +34,3 @@
     </tr>
   </tbody>
 </table>
-<!-- <ul>
-  ID :
-  {{
-    beer.id
-  }}
-  <li>BeerName: {{ beer.beerName }}</li>
-  <li>Style: {{ beer.beerStyle }}</li>
-  <li>Price: {{ beer.price }}</li>
-  <li>UPC: {{ beer.upc }}</li>
-  <li>Creation Date: {{ beer.createdDate }}</li>
-</ul>
--->

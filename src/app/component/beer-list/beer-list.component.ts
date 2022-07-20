@@ -8,6 +8,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerListComponent implements OnInit {
   beers: Beer[];
+  selectedBeer: Beer;
   name: string;
   constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();
@@ -18,7 +19,12 @@ export class BeerListComponent implements OnInit {
     console.log('Component BeerList destroyed');
   }
 
-  mihannocliccato(name: string) {
-    this.name = name;
+  mihannocliccato(beer: Beer) {
+    this.selectedBeer = beer;
+    console.log(beer);
+  }
+
+  goBack() {
+    this.selectedBeer = null;
   }
 }

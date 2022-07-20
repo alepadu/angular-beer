@@ -9,7 +9,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerTableComponent implements OnInit {
   beers: Beer[];
-  @Output() cliccato = new EventEmitter<string>();
+  @Output() cliccato = new EventEmitter<Beer>();
 
   constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();

@@ -1,10 +1,19 @@
-<div class="card shadow py-2">
-  <div class="card">
-    <div class="card-header">Beer List - {{ name }}</div>
-    <div class="card-body">
-      <app-beer-table (cliccato)="mihannocliccato($event)"></app-beer-table>
-    </div>
+<div class="card shadow py-2" *ngIf="!selectedBeer">
+  <div class="card-header">Beer List {{ name }}</div>
+  <div class="card-body">
+    <app-beer-table (cliccato)="mihannocliccato($event)"></app-beer-table>
   </div>
+</div>
+<div class="card" *ngIf="selectedBeer">
+  <div class="card-header">Selected beer details</div>
+  <div class="card-body">
+    Name: {{ selectedBeer.beerName }} <br />
+    Style: {{ selectedBeer.beerStyle }} <br />
+    Price: {{ selectedBeer.price }} <br />
+    <button class="btn btn-info" (click)="goBack()">Indietro</button>
+  </div>
+</div>
+<div class="card shadow py-2" *ngIf="!selectedBeer">
   <h5 class="card-header">Beer list</h5>
   <div class="card-body mx-2">
     <ul class="list-group" *ngFor="let beer of beerService.beers">
