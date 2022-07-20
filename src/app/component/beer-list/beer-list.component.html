@@ -2,29 +2,12 @@
   <h5 class="card-header">Beer list</h5>
   <div class="card-body">
     <ul class="list-group" *ngFor="let beer of beers">
-      <li>{{ beer.beerName }}</li>
+      <li></li>
     </ul>
   </div>
 </div>
 <div class="card">
   <div class="card-body">
-    <table class="table table-striped table-bordered table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <td><i class="fa fa-hashtag" aria-hidden="true"></i></td>
-          <td>Name</td>
-          <td>Style</td>
-          <td>Price</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let beer of beers">
-          <td>{{ beer.id }}</td>
-          <td>{{ beer.beerName }}</td>
-          <td>{{ beer.beerStyle }}</td>
-          <td>{{ beer.price }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <app-beer-table [beers]="beers"></app-beer>
   </div>
 </div>
