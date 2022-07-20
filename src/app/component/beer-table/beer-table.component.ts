@@ -10,9 +10,15 @@ import { BeerService } from '../../services/beer.service';
 export class BeerTableComponent implements OnInit {
   beers: Beer[];
 
-  constructor(beerService: BeerService) {
+  constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.beers);
+  }
+
+  deleteBeer(item: Beer) {
+    this.beerService.deleteBeer(item);
+  }
 }

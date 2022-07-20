@@ -10,13 +10,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let beer of beers">
+    <tr *ngFor="let beer of beerService.beers">
       <td>{{ beer.id }}</td>
       <td>{{ beer.beerName }}</td>
       <td>{{ beer.beerStyle }}</td>
       <td>{{ beer.price }}</td>
       <td>{{ beer.upc }}</td>
       <td>{{ beer.createdDate }}</td>
+      <td>
+        <button (click)="deleteBeer(beer)">
+          elimina<i class="fa fa-trash"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
