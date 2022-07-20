@@ -8,6 +8,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerListComponent implements OnInit {
   beers: Beer[];
+  name: string;
   constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();
   }
@@ -15,5 +16,9 @@ export class BeerListComponent implements OnInit {
   ngOnInit() {}
   ngOnDestroy() {
     console.log('Component BeerList destroyed');
+  }
+
+  mihannocliccato(name: string) {
+    this.name = name;
   }
 }

@@ -1,7 +1,8 @@
 <div class="card shadow py-2">
   <div class="card">
+    <div class="card-header">Beer List - {{ name }}</div>
     <div class="card-body">
-      <app-beer-table></app-beer-table>
+      <app-beer-table (cliccato)="mihannocliccato($event)"></app-beer-table>
     </div>
   </div>
   <h5 class="card-header">Beer list</h5>

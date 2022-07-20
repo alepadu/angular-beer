@@ -12,7 +12,15 @@
   <tbody>
     <tr *ngFor="let beer of beerService.beers">
       <td>{{ beer.id }}</td>
-      <td>{{ beer.beerName }}</td>
+      <td>
+        {{ beer.beerName }} -
+        <button
+          class="btn btn-sm btn-info"
+          (click)="cliccato.emit(beer.beerName)"
+        >
+          Send name to father
+        </button>
+      </td>
       <td>{{ beer.beerStyle }}</td>
       <td>{{ beer.price }}</td>
       <td>{{ beer.upc }}</td>

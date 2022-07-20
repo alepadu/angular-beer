@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Beer } from '../../model/model';
 import { BeerService } from '../../services/beer.service';
 
@@ -9,6 +9,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerTableComponent implements OnInit {
   beers: Beer[];
+  @Output() cliccato = new EventEmitter<string>();
 
   constructor(public beerService: BeerService) {
     this.beers = beerService.getBeersList();
