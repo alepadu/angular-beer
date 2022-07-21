@@ -4,6 +4,6 @@ export interface AppState {
   beerState: BeerState;
 }
 
-interface BeerState {
+export interface BeerState {
   list: Beer[];
 }

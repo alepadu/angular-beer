@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let beer of beerService.beers">
+    <tr *ngFor="let beer of beerService.getBeersList() | async">
       <td>{{ beer.id }}</td>
       <td>
         {{ beer.beerName }} -

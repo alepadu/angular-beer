@@ -2,5 +2,5 @@ import { createReducer } from '@ngrx/store';
 import { beersData } from '../data/beer-list';
 import { BeerState } from '../model/state';
 
-export const initialBeerState: BeerState = { list: beersData };
+const initialBeerState: BeerState = { list: beersData };
 export const beerReducers: any = createReducer(initialBeerState);

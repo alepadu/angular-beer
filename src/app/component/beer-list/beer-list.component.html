@@ -17,7 +17,10 @@
 <div class="card shadow py-2" *ngIf="!selectedBeer">
   <h5 class="card-header">Beer list</h5>
   <div class="card-body mx-2">
-    <ul class="list-group" *ngFor="let beer of beerService.beers">
+    <ul
+      class="list-group"
+      *ngFor="let beer of beerService.getBeersList() | async"
+    >
       <app-beer [beer]="beer"></app-beer>
     </ul>
   </div>
