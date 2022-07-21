@@ -6,3 +6,5 @@ export const beerSelectors = createSelector(
   beerStateFunction,
   (beerState: BeerState) => beerState.list
 );
+
+

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { beersData } from '../data/beer-list';
 import { Beer, BeerStyle } from '../model/model';
 import { beerSelectors } from '../store/selector';
+import { deleteBeerAction } from '../store/actions';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +18,14 @@ export class BeerService {
   }
 
   deleteBeer(item: Beer) {
-    this.beers = this.beers.filter((beer) => beer.id !== item.id);
+    this.store.dispatch(deleteBeerAction(item.id));
   }
+
   generateNewBeerId(): number {
     const maxId = Math.max(...this.beers.map((beer) => beer.id));
     return maxId + 1;
   }
+
   addBeer(beer: Beer) {
     this.beers.unshift(beer);
   }

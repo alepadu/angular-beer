@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../../model/model';
 import { BeerService } from '../../services/beer.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-beer-list',
   templateUrl: './beer-list.component.html',
@@ -9,9 +10,10 @@ import { BeerService } from '../../services/beer.service';
 export class BeerListComponent implements OnInit {
   beers: Beer[];
   selectedBeer: Beer;
-  name: string;
+  beerList: Observable<Beer[]>;
+
   constructor(public beerService: BeerService) {
-    this.beers = beerService.getBeersList();
+    this.beerList = this.beerService.getBeersList();
   }
 
   ngOnInit() {}
