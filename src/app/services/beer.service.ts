@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { beersData } from '../data/beer-list';
 import { Beer, BeerStyle } from '../model/model';
 import { beerSelectors } from '../store/selector';
-import { deleteBeerAction } from '../store/actions';
+import { addBeerAction, deleteBeerAction } from '../store/actions';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +27,6 @@ export class BeerService {
   }
 
   addBeer(beer: Beer) {
-    this.beers.unshift(beer);
+    this.store.dispatch(addBeerAction({ beer }));
   }
 }

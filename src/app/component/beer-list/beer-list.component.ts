@@ -18,12 +18,12 @@ export class BeerListComponent implements OnInit {
 
   ngOnInit() {}
   ngOnDestroy() {
-    console.log('Component BeerList destroyed');
+    //console.log('Component BeerList destroyed');
   }
 
   mihannocliccato(beer: Beer) {
     this.selectedBeer = beer;
-    console.log(beer);
+    //console.log(beer);
   }
 
   goBack() {

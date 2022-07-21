@@ -18,7 +18,7 @@ export class BeerTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.beers);
+    //console.log(this.beers);
   }
 
   deleteBeer(item: Beer) {
