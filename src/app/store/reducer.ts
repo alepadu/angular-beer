@@ -21,6 +21,6 @@ export const beerReducers: any = createReducer(
 function addBeer(beerState: BeerState, beer: Beer) {
   let beers: Beer[] = beerState.list;
   beers = [...beers];
-  beers.unshift(beer);
+  beers.push(beer);
   return beers;
 }
